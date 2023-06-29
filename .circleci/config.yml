@@ -9,5 +9,7 @@ jobs:
       - run: |
             if [ "$CIRCLE_NODE_INDEX" == "2" ]; then
               circleci-agent step halt
+            else
+              sleep 60
             fi
 
