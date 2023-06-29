@@ -3,16 +3,9 @@ jobs:
   build:
     docker:
       - image: cimg/base:stable
-    parallelism: 15
+    parallelism: 5
     steps:
       - checkout
       - run: |
-            echo "export AWS_ACCESS_KEY_ID=aaaa"  >> $BASH_ENV
-
-            source $BASH_ENV # Adding source to read the env vars
-
-            if [ -z "${AWS_ACCESS_KEY_ID}" ]; then
-                  echo "no val"
-                  exit 1
-            fi
+            circleci-agent step halt
 
