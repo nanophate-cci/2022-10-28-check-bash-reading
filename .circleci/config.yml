@@ -7,5 +7,7 @@ jobs:
     steps:
       - checkout
       - run: |
-            circleci-agent step halt
+            if [ "$CIRCLE_NODE_INDEX" == "2" ]; then
+              circleci-agent step halt
+            fi
 
